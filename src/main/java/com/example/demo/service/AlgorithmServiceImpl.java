@@ -14,6 +14,10 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     private final AlgorithmRepository algorithmRepository;
     private Long ids = 3L;
 
+    /**
+     *
+     * {@inheritDoc}
+     */
     @Override
     public Optional<Algorithm> getAlgorithm() {
         return algorithmRepository.findAlgorithmById(ids);

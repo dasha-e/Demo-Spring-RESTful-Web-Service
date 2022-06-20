@@ -13,7 +13,7 @@ public class AlgorithmController {
     //localhost:8080/Algorithm
     private final AlgorithmService algorithmService;
 
-    @RequestMapping(value = "/Algorithm", method = RequestMethod.GET)
+    @RequestMapping(value = "/algorithm", method = RequestMethod.GET)
     public Optional<Algorithm> getAlgorithm() {
         return algorithmService.getAlgorithm();
     }
