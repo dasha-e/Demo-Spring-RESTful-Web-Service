@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS Algorithm;
+CREATE TABLE IF NOT EXISTS Algorithm
+(
+    id    BIGSERIAL PRIMARY KEY ,
+    title  VARCHAR(200) NOT NULL ,
+    descr VARCHAR(400) NOT NULL
+);
