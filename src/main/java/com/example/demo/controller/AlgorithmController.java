@@ -49,7 +49,10 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/insert-algorithm", method = RequestMethod.POST)
-    public void createAlgorithm(@RequestBody Algorithm algorithm) {
+    public void createAlgorithm(String title, String descr) {
+        Algorithm algorithm = new Algorithm();
+        algorithm.setTitle(title);
+        algorithm.setDescr(descr);
         algorithmService.saveAlgorithm(algorithm);
     }
 
