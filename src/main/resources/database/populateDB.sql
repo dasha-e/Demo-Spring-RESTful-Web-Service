@@ -1,17 +1,9 @@
 INSERT INTO algorithm VALUES
-(DEFAULT, 'Binary Search Algorithm', 'It works in sorted array by repeatedly dividing in half the portion' ||
-                               ' of the list that could contain the item, until you have narrowed' ||
-                               ' down the possible locations to just one.'),
-(DEFAULT, 'Euclid’s Algorithm to find GCD of two numbers', 'The Euclidean Algorithm for calculating GCD of two numbers A and B can be given as follows:' ||
-        ' If A=0 then GCD(A, B)=B since the Greatest Common Divisor of 0 and B is B. If B=0 then' ||
-        ' GCD(a,b)=a since the Greates Common Divisor of 0 and a is a. Let R be the remainder of' ||
-        ' dividing A by B assuming A > B.'),
-(DEFAULT, 'Quicksort Algorithm', 'Quicksort is a divide-and-conquer algorithm. It works by selecting a' ||
-                           ' ''pivot'' element from the array and partitioning the other elements ' ||
-                           'into two sub-arrays, according to whether they are less than or greater ' ||
-                           'than the pivot.'),
-(DEFAULT, 'Merge Sort Algorithm', 'It uses the divide and conquer approach.  It divides the given list into' ||
-                            ' two equal halves, calls itself for the two halves and then merges the ' ||
-                            'two sorted halves.'),
 (DEFAULT, 'Bubble Sort ', 'The simplest sorting algorithm that works by repeatedly swapping the adjacent ' ||
-                    'elements if they are in the wrong order.');
+                    'elements if they are in the wrong order.'),
+(DEFAULT, 'Selection Sort', 'Selection sort is a sorting algorithm that selects the smallest element from an unsorted' ||
+              ' list in each iteration and places that element at the beginning of the unsorted list.'),
+(DEFAULT, 'Insertion Sort', 'Insertion sort is a simple sorting algorithm that builds the final sorted' ||
+                            ' array (or list) one item at a time. It is much less efficient on large' ||
+                            ' lists than more advanced algorithms such as quicksort, heapsort, or merge' ||
+                            ' sort.');
