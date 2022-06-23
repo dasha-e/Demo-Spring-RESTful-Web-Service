@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Algorithm;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.util.List;
 
@@ -31,5 +32,13 @@ public interface AlgorithmService {
      *
      * @param id - algorithm's id
      */
-    void deleteAlgorithm(Long id);
+    void deleteAlgorithm(long id);
+
+    /**
+     * Sort given array by algorithm with id
+     * @param id
+     * @param arr
+     * @return
+     */
+    ImmutablePair<Long, String> solve(long id, int[] arr);
 }

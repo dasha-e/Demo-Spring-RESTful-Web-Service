@@ -18,5 +18,5 @@ public interface AlgorithmRepository extends JpaRepository<Algorithm, Long> {
     @Transactional
     @Modifying
     @Query("UPDATE Algorithm u SET u.title = :title, u.descr = :descr WHERE u.id = :id")
-    void updateAlgorithm(Long id, String title, String descr);
+    void updateAlgorithm(long id, String title, String descr);
 }
