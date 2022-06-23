@@ -9,10 +9,9 @@ public class BubbleSort {
     }
 
     public String sort(int[] arr) {
-        long time = System.currentTimeMillis();
         for (int i = 1; i < arr.length; i++) {
             boolean out = true;
-            for (int j = 0; j < arr.length - i - 1; j++) {
+            for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     arr[j] = getItself(arr[j + 1], arr[j + 1] = arr[j]);
                     out = false;
