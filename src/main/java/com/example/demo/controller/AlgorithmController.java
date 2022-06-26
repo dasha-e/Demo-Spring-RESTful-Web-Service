@@ -14,7 +14,6 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Random;
 
 @Tag(name = "Algorithm", description = "algorithm API")
 @RestController
@@ -119,12 +118,6 @@ public class AlgorithmController {
     })
     @RequestMapping(value = "/sort-random-array", method = RequestMethod.GET)
     public Long solve(long id, int countOfNumbers){
-        int[] arr = new int[countOfNumbers];
-        Random random = new Random();
-        for(int i = 0; i < arr.length - 1; i++){
-            arr[i] = random.nextInt();
-        }
-        return algorithmService.solve(id, arr).left;
+        return algorithmService.solveRnd(id, countOfNumbers);
     }
-
 }

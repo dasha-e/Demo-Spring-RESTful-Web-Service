@@ -41,4 +41,14 @@ public interface AlgorithmService {
      * @return
      */
     ImmutablePair<Long, String> solve(long id, int[] arr);
+
+    /**
+     * Creating array of countOfNumbers random int and sorting by solve method
+     * @param id
+     * @param countOfNumbers
+     * @return
+     */
+    Long solveRnd(long id, int countOfNumbers);
+
+
 }

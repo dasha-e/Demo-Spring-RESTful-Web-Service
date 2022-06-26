@@ -5,11 +5,12 @@ import com.example.demo.repository.AlgorithmRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.stereotype.Service;
-import com.example.demo.service.Algorithm.SelectionSort;
-import com.example.demo.service.Algorithm.InsertionSort;
-import com.example.demo.service.Algorithm.BubbleSort;
+import com.example.demo.service.algorithm.SelectionSort;
+import com.example.demo.service.algorithm.InsertionSort;
+import com.example.demo.service.algorithm.BubbleSort;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -78,5 +79,11 @@ public class AlgorithmServiceImpl implements AlgorithmService {
             default:
                 return new ImmutablePair<>(0L, "");
         }
+    }
+
+    @Override
+    public Long solveRnd(long id, int countOfNumbers){
+        int[] arr = new Random().ints(countOfNumbers, 0, 10000).toArray();
+        return solve(id, arr).left;
     }
 }
