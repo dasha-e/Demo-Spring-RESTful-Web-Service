@@ -2,12 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Algorithm;
 import com.example.demo.repository.AlgorithmRepository;
+import com.example.demo.service.algorithm.*;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.stereotype.Service;
-import com.example.demo.service.algorithm.SelectionSort;
-import com.example.demo.service.algorithm.InsertionSort;
-import com.example.demo.service.algorithm.BubbleSort;
 
 import java.util.List;
 import java.util.Random;
@@ -75,6 +73,14 @@ public class AlgorithmServiceImpl implements AlgorithmService {
             case (3):
                 time = System.currentTimeMillis();
                 sortedStr = (new InsertionSort()).sort(arr);
+                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+            case(4):
+                time = System.currentTimeMillis();
+                sortedStr = (new QuickSort()).sort(arr);
+                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+            case(5):
+                time = System.currentTimeMillis();
+                sortedStr = (new MergeSort()).sort(arr);
                 return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
             default:
                 return new ImmutablePair<>(0L, "");
