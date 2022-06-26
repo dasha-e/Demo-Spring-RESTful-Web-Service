@@ -1,4 +1,4 @@
-package com.example.demo.service.Algorithm;
+package com.example.demo.service.algorithm;
 
 import java.util.Arrays;
 
@@ -9,8 +9,9 @@ public class BubbleSort {
     }
 
     public String sort(int[] arr) {
+        boolean out;
         for (int i = 1; i < arr.length; i++) {
-            boolean out = true;
+            out = true;
             for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     arr[j] = getItself(arr[j + 1], arr[j + 1] = arr[j]);

@@ -1,4 +1,4 @@
-package com.example.demo.service.Algorithm;
+package com.example.demo.service.algorithm;
 
 import java.util.Arrays;
 
@@ -9,7 +9,6 @@ public class InsertionSort {
     }
 
     public String sort(int[] arr) {
-        long time = System.currentTimeMillis();
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (arr[j] < arr[j - 1]) {
