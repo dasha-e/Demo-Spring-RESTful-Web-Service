@@ -8,31 +8,34 @@ public class QuickSort {
     }
 
     private int partition(int[] arr, int low, int high) {
-        int pivot = (arr[low] + arr[high]) / 2 + 1;
+        int pivot = low + (high - low) / 2;
         int i = low;
         int j = high;
-        while (true) {
-            while (arr[i] < pivot) {
+        while (i < j) {
+            while (arr[i] <= arr[pivot] && i < pivot) {
                 i++;
             }
-            while(arr[j] >= pivot){
+            while (arr[pivot] <= arr[j] && j > pivot) {
                 j--;
             }
-            if(i >= j){
-                return j;
+            if (i < j) {
+                arr[i] = getItself(arr[j], arr[j] = arr[i]);
+                if (i == pivot)
+                    pivot = j;
+                else if (j == pivot)
+                    pivot = i;
             }
-            arr[i] = getItself(arr[j], arr[j] = arr[i]);
-            i++;
-            j--;
         }
+        return pivot;
     }
 
     private void quicksort(int[] arr, int low, int high){
-        if(low < high){
-            int p = partition(arr, low, high);
-            quicksort(arr, low, p - 1);
-            quicksort(arr, p + 1, high);
+        if(low > high){
+            return;
         }
+        int p = partition(arr, low, high);
+        quicksort(arr, low, p - 1);
+        quicksort(arr, p + 1, high);
     }
 
     public String sort(int[] arr){
