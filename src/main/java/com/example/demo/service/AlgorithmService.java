@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.SortObject;
 import com.example.demo.entity.Algorithm;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
@@ -40,7 +41,7 @@ public interface AlgorithmService {
      * @param arr
      * @return
      */
-    ImmutablePair<Long, String> solve(long id, int[] arr);
+    SortObject solve(long id, int[] arr);
 
     /**
      * Creating array of countOfNumbers random int and sorting by solve method

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.SortObject;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.service.AlgorithmService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -101,7 +102,7 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/sort-array", method = RequestMethod.GET)
-    public ImmutablePair<Long, String> solve(long id, int[] arr){
+    public SortObject solve(long id, int[] arr){
         return algorithmService.solve(id, arr);
     }
 

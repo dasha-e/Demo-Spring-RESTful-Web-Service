@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.SortObject;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.repository.AlgorithmRepository;
 import com.example.demo.service.algorithm.*;
@@ -60,36 +61,36 @@ public class AlgorithmServiceImpl implements AlgorithmService {
      * {@inheritDoc}
      */
     @Override
-    public ImmutablePair<Long, String> solve(long id, int[] arr) {
+    public SortObject solve(long id, int[] arr) {
         switch ((int)id){
             case (1):
                 long time = System.currentTimeMillis();
                 String sortedStr = (new BubbleSort()).sort(arr);
-                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+                return new SortObject(System.currentTimeMillis() - time, sortedStr);
             case (2):
                 time = System.currentTimeMillis();
                 sortedStr = (new SelectionSort()).sort(arr);
-                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+                return new SortObject(System.currentTimeMillis() - time, sortedStr);
             case (3):
                 time = System.currentTimeMillis();
                 sortedStr = (new InsertionSort()).sort(arr);
-                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+                return new SortObject(System.currentTimeMillis() - time, sortedStr);
             case(4):
                 time = System.currentTimeMillis();
                 sortedStr = (new QuickSort()).sort(arr);
-                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+                return new SortObject(System.currentTimeMillis() - time, sortedStr);
             case(5):
                 time = System.currentTimeMillis();
                 sortedStr = (new MergeSort()).sort(arr);
-                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+                return new SortObject(System.currentTimeMillis() - time, sortedStr);
             default:
-                return new ImmutablePair<>(0L, "");
+                return new SortObject(0L, "");
         }
     }
 
     @Override
     public Long solveRnd(long id, int countOfNumbers){
         int[] arr = new Random().ints(countOfNumbers, 0, 10000).toArray();
-        return solve(id, arr).left;
+        return solve(id, arr).getTime();
     }
 }
