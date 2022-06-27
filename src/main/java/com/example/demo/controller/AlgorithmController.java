@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.SortObject;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.service.AlgorithmService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +15,6 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Random;
 
 @Tag(name = "Algorithm", description = "algorithm API")
 @RestController
@@ -102,7 +102,7 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/sort-array", method = RequestMethod.GET)
-    public ImmutablePair<Long, String> solve(long id, int[] arr){
+    public SortObject solve(long id, int[] arr){
         return algorithmService.solve(id, arr);
     }
 
@@ -119,12 +119,6 @@ public class AlgorithmController {
     })
     @RequestMapping(value = "/sort-random-array", method = RequestMethod.GET)
     public Long solve(long id, int countOfNumbers){
-        int[] arr = new int[countOfNumbers];
-        Random random = new Random();
-        for(int i = 0; i < arr.length - 1; i++){
-            arr[i] = random.nextInt();
-        }
-        return algorithmService.solve(id, arr).left;
+        return algorithmService.solveRnd(id, countOfNumbers);
     }
-
 }

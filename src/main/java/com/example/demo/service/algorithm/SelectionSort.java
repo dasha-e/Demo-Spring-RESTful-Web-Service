@@ -1,14 +1,12 @@
-package com.example.demo.service.Algorithm;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
+package com.example.demo.service.algorithm;
 
 import java.util.Arrays;
 
 public class SelectionSort {
     public String sort(int[] arr) {
-        long time = System.currentTimeMillis();
+        int minIndex;
         for (int i = 0; i <= arr.length - 1; i++) {
-            int minIndex = findIndexOfMin(arr, i);
+            minIndex = findIndexOfMin(arr, i);
             if (minIndex != i) {
                 arr[i] = getItself(arr[minIndex], arr[minIndex] = arr[i]);
             }
