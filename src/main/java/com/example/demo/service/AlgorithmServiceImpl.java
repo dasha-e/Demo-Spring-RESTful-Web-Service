@@ -3,7 +3,11 @@ package com.example.demo.service;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.repository.AlgorithmRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.stereotype.Service;
+import com.example.demo.service.Algorithm.SelectionSort;
+import com.example.demo.service.Algorithm.InsertionSort;
+import com.example.demo.service.Algorithm.BubbleSort;
 
 import java.util.List;
 
@@ -48,7 +52,31 @@ public class AlgorithmServiceImpl implements AlgorithmService {
      * {@inheritDoc}
      */
     @Override
-    public void deleteAlgorithm(Long id) {
+    public void deleteAlgorithm(long id) {
         algorithmRepository.deleteById(id);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     */
+    @Override
+    public ImmutablePair<Long, String> solve(long id, int[] arr) {
+        switch ((int)id){
+            case (1):
+                long time = System.currentTimeMillis();
+                String sortedStr = (new BubbleSort()).sort(arr);
+                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+            case (2):
+                time = System.currentTimeMillis();
+                sortedStr = (new SelectionSort()).sort(arr);
+                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+            case (3):
+                time = System.currentTimeMillis();
+                sortedStr = (new InsertionSort()).sort(arr);
+                return new ImmutablePair<>(System.currentTimeMillis() - time, sortedStr);
+            default:
+                return new ImmutablePair<>(0L, "");
+        }
     }
 }

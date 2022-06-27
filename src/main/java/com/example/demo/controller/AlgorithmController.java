@@ -10,9 +10,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @Tag(name = "Algorithm", description = "algorithm API")
 @RestController
@@ -49,7 +51,10 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/insert-algorithm", method = RequestMethod.POST)
-    public void createAlgorithm(@RequestBody Algorithm algorithm) {
+    public void createAlgorithm(String title, String descr) {
+        Algorithm algorithm = new Algorithm();
+        algorithm.setTitle(title);
+        algorithm.setDescr(descr);
         algorithmService.saveAlgorithm(algorithm);
     }
 
@@ -83,6 +88,43 @@ public class AlgorithmController {
     @RequestMapping(value = "/delete-algorithm", method = RequestMethod.DELETE)
     public void deleteAlgorithm(Long id) {
         algorithmService.deleteAlgorithm(id);
+    }
+
+    @Operation(summary = "Sort given array of int by algorithm from database with id. Returns sorted array and the sort time in milliseconds", tags = "Solve")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Array sorted",
+                    content = {
+                            @Content(
+                                    mediaType = "application/json",
+                                    array = @ArraySchema(schema = @Schema(implementation = Algorithm.class)))
+                    })
+    })
+    @RequestMapping(value = "/sort-array", method = RequestMethod.GET)
+    public ImmutablePair<Long, String> solve(long id, int[] arr){
+        return algorithmService.solve(id, arr);
+    }
+
+    @Operation(summary = "Sort array of random int by algorithm from database with id. Returns the sort time in milliseconds.", tags = "Solve")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Array sorted",
+                    content = {
+                            @Content(
+                                    mediaType = "application/json",
+                                    array = @ArraySchema(schema = @Schema(implementation = Algorithm.class)))
+                    })
+    })
+    @RequestMapping(value = "/sort-random-array", method = RequestMethod.GET)
+    public Long solve(long id, int countOfNumbers){
+        int[] arr = new int[countOfNumbers];
+        Random random = new Random();
+        for(int i = 0; i < arr.length - 1; i++){
+            arr[i] = random.nextInt();
+        }
+        return algorithmService.solve(id, arr).left;
     }
 
 }
