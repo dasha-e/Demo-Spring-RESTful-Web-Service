@@ -29,8 +29,8 @@ public class QuickSort {
         return pivot;
     }
 
-    private void quicksort(int[] arr, int low, int high){
-        if(low > high){
+    private void quicksort(int[] arr, int low, int high) {
+        if (low > high) {
             return;
         }
         int p = partition(arr, low, high);
@@ -38,7 +38,7 @@ public class QuickSort {
         quicksort(arr, p + 1, high);
     }
 
-    public String sort(int[] arr){
+    public String sort(int[] arr) {
         quicksort(arr, 0, arr.length - 1);
         return Arrays.toString(arr);
     }

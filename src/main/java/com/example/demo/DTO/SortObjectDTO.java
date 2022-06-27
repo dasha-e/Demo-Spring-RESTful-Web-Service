@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class SortObject {
+public class SortObjectDTO {
     private final long time;
-    private final String array;
+    private final String result;
 }
