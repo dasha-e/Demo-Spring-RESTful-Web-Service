@@ -8,6 +8,8 @@ public class InsertionSort {
         return itself;
     }
 
+    // current element moving to the left until it would be in a right place:
+    // when element on the left <= current <= element on the right
     public String sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {

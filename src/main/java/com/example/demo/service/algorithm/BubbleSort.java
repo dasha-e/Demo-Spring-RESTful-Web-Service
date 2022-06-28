@@ -9,6 +9,7 @@ public class BubbleSort {
         return itself;
     }
 
+    // move the smaller elements to the beginning of the array like a bubble :)
     public String sort(int[] arr) {
         boolean out;
         for (int i = 1; i < arr.length; i++) {
