@@ -7,7 +7,7 @@ public class MergeSort {
         if (arr.length < 2) {
             return;
         }
-        int mid = arr.length/ 2;
+        int mid = arr.length / 2;
 
         int[] l = Arrays.copyOfRange(arr, 0, mid);
         int[] r = Arrays.copyOfRange(arr, mid, arr.length);
@@ -35,7 +35,7 @@ public class MergeSort {
         }
     }
 
-    public String sort(int[] arr){
+    public String sort(int[] arr) {
         mergeSort(arr);
         return Arrays.toString(arr);
     }

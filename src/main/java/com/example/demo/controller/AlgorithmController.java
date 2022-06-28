@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.SortObject;
+import com.example.demo.DTO.SortObjectDTO;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.service.AlgorithmService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,8 +11,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -52,10 +54,7 @@ public class AlgorithmController {
     })
     @RequestMapping(value = "/insert-algorithm", method = RequestMethod.POST)
     public void createAlgorithm(String title, String descr) {
-        Algorithm algorithm = new Algorithm();
-        algorithm.setTitle(title);
-        algorithm.setDescr(descr);
-        algorithmService.saveAlgorithm(algorithm);
+        algorithmService.saveAlgorithm(title, descr);
     }
 
     @Operation(summary = "Update algorithm in database", tags = "Put")
@@ -102,7 +101,7 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/sort-array", method = RequestMethod.GET)
-    public SortObject solve(long id, int[] arr){
+    public SortObjectDTO solve(long id, int[] arr) {
         return algorithmService.solve(id, arr);
     }
 
@@ -118,7 +117,7 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/sort-random-array", method = RequestMethod.GET)
-    public Long solve(long id, int countOfNumbers){
+    public SortObjectDTO solve(long id, int countOfNumbers) {
         return algorithmService.solveRnd(id, countOfNumbers);
     }
 }
