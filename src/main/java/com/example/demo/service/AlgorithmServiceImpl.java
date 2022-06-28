@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Service
@@ -15,6 +16,8 @@ import java.util.Random;
 public class AlgorithmServiceImpl implements AlgorithmService {
 
     private final AlgorithmRepository algorithmRepository;
+
+    private final Map<String, SortingStrategy> sortingStrategyMap;
 
     /**
      * {@inheritDoc}
@@ -59,30 +62,9 @@ public class AlgorithmServiceImpl implements AlgorithmService {
      */
     @Override
     public SortObjectDTO solve(long id, int[] arr) {
-        switch ((int) id) {
-            case (1):
-                long time = System.currentTimeMillis();
-                String sortedStr = (new BubbleSort()).sort(arr);
-                return new SortObjectDTO(System.currentTimeMillis() - time, sortedStr);
-            case (2):
-                time = System.currentTimeMillis();
-                sortedStr = (new SelectionSort()).sort(arr);
-                return new SortObjectDTO(System.currentTimeMillis() - time, sortedStr);
-            case (3):
-                time = System.currentTimeMillis();
-                sortedStr = (new InsertionSort()).sort(arr);
-                return new SortObjectDTO(System.currentTimeMillis() - time, sortedStr);
-            case (4):
-                time = System.currentTimeMillis();
-                sortedStr = (new QuickSort()).sort(arr);
-                return new SortObjectDTO(System.currentTimeMillis() - time, sortedStr);
-            case (5):
-                time = System.currentTimeMillis();
-                sortedStr = (new MergeSort()).sort(arr);
-                return new SortObjectDTO(System.currentTimeMillis() - time, sortedStr);
-            default:
-                return new SortObjectDTO(0L, "");
-        }
+        AlgorithmContext context = new AlgorithmContext(sortingStrategyMap.get(Long.toString(id)));
+        long time = System.currentTimeMillis();
+        return new SortObjectDTO(System.currentTimeMillis() - time, context.executeSortingStrategy(arr));
     }
 
     /**

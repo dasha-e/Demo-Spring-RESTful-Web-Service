@@ -15,4 +15,8 @@ INSERT INTO algorithm VALUES
                         'This sorting is a good example of using the divide and conquer principle. ' ||
                         'First, the task is divided into several smaller subtasks. These tasks are then ' ||
                         'solved with a recursive call or directly if their size is small enough. Finally, ' ||
-                        'their solutions are combined, and a solution to the original problem is obtained.' )
+                        'their solutions are combined, and a solution to the original problem is obtained.' ),
+(DEFAULT, 'Heap Sort', 'Heap sort is a comparison-based sorting technique based on Binary Heap data structure.' ||
+                       ' It is similar to selection sort where we first find the minimum element and place' ||
+                       ' the minimum element at the beginning. We repeat the same process for the remaining' ||
+                       ' elements.');
