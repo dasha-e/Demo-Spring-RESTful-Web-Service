@@ -1,8 +1,13 @@
 package com.example.demo.service.algorithm;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
-public class HeapSort {
+@Component("6")
+public class HeapSort extends SortingStrategy {
+
+    @Override
     public String sort(int[] arr) {
         // Build heap (rearrange array)
         for (int i = arr.length / 2 - 1; i >= 0; i--)
@@ -40,9 +45,5 @@ public class HeapSort {
             // Recursively heapify the sub-tree
             heapify(arr, length, largest);
         }
-    }
-
-    private static int getItself(int itself, int buf) {
-        return itself;
     }
 }

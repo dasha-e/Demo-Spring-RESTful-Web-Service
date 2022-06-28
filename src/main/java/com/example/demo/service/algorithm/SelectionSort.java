@@ -1,8 +1,12 @@
 package com.example.demo.service.algorithm;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
-public class SelectionSort {
+@Component("2")
+public class SelectionSort extends SortingStrategy {
+    @Override
     public String sort(int[] arr) {
         int minIndex;
         for (int i = 0; i <= arr.length - 1; i++) {
@@ -24,9 +28,5 @@ public class SelectionSort {
             }
         }
         return index;
-    }
-
-    private static int getItself(int itself, int buf) {
-        return itself;
     }
 }

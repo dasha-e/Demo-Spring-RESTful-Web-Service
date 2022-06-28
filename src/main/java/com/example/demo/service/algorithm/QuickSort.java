@@ -1,10 +1,15 @@
 package com.example.demo.service.algorithm;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
-public class QuickSort {
-    private static int getItself(int itself, int buf) {
-        return itself;
+@Component("4")
+public class QuickSort extends SortingStrategy {
+    @Override
+    public String sort(int[] arr) {
+        quicksort(arr, 0, arr.length - 1);
+        return Arrays.toString(arr);
     }
 
     private int partition(int[] arr, int low, int high) {
@@ -45,10 +50,5 @@ public class QuickSort {
         // likewise recursively sort two parts of array divided by middle element
         quicksort(arr, low, p - 1);
         quicksort(arr, p + 1, high);
-    }
-
-    public String sort(int[] arr) {
-        quicksort(arr, 0, arr.length - 1);
-        return Arrays.toString(arr);
     }
 }

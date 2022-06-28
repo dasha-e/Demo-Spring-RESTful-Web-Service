@@ -1,8 +1,17 @@
 package com.example.demo.service.algorithm;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
-public class MergeSort {
+@Component("5")
+public class MergeSort extends SortingStrategy {
+    @Override
+    public String sort(int[] arr) {
+        mergeSort(arr);
+        return Arrays.toString(arr);
+    }
+
     private void mergeSort(int[] arr) {
         if (arr.length < 2) {
             return;
@@ -35,10 +44,5 @@ public class MergeSort {
         while (j < r.length) {
             arr[k++] = r[j++];
         }
-    }
-
-    public String sort(int[] arr) {
-        mergeSort(arr);
-        return Arrays.toString(arr);
     }
 }
