@@ -1,14 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.SortObject;
+import com.example.demo.DTO.SortObjectDTO;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.repository.AlgorithmRepository;
 import com.example.demo.service.algorithm.*;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Service
@@ -17,8 +17,9 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 
     private final AlgorithmRepository algorithmRepository;
 
+    private final Map<String, SortingStrategy> sortingStrategyMap;
+
     /**
-     *
      * {@inheritDoc}
      */
     @Override
@@ -27,16 +28,17 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     }
 
     /**
-     *
      * {@inheritDoc}
      */
     @Override
-    public void saveAlgorithm(Algorithm algorithm) {
+    public void saveAlgorithm(String title, String descr) {
+        Algorithm algorithm = new Algorithm();
+        algorithm.setTitle(title);
+        algorithm.setDescr(descr);
         algorithmRepository.save(algorithm);
     }
 
     /**
-     *
      * {@inheritDoc}
      */
     @Override
@@ -48,7 +50,6 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     }
 
     /**
-     *
      * {@inheritDoc}
      */
     @Override
@@ -57,40 +58,21 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     }
 
     /**
-     *
      * {@inheritDoc}
      */
     @Override
-    public SortObject solve(long id, int[] arr) {
-        switch ((int)id){
-            case (1):
-                long time = System.currentTimeMillis();
-                String sortedStr = (new BubbleSort()).sort(arr);
-                return new SortObject(System.currentTimeMillis() - time, sortedStr);
-            case (2):
-                time = System.currentTimeMillis();
-                sortedStr = (new SelectionSort()).sort(arr);
-                return new SortObject(System.currentTimeMillis() - time, sortedStr);
-            case (3):
-                time = System.currentTimeMillis();
-                sortedStr = (new InsertionSort()).sort(arr);
-                return new SortObject(System.currentTimeMillis() - time, sortedStr);
-            case(4):
-                time = System.currentTimeMillis();
-                sortedStr = (new QuickSort()).sort(arr);
-                return new SortObject(System.currentTimeMillis() - time, sortedStr);
-            case(5):
-                time = System.currentTimeMillis();
-                sortedStr = (new MergeSort()).sort(arr);
-                return new SortObject(System.currentTimeMillis() - time, sortedStr);
-            default:
-                return new SortObject(0L, "");
-        }
+    public SortObjectDTO solve(long id, int[] arr) {
+        AlgorithmContext context = new AlgorithmContext(sortingStrategyMap.get(Long.toString(id)));
+        long time = System.currentTimeMillis();
+        return new SortObjectDTO(System.currentTimeMillis() - time, context.executeSortingStrategy(arr));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Long solveRnd(long id, int countOfNumbers){
+    public SortObjectDTO solveRnd(long id, int countOfNumbers) {
         int[] arr = new Random().ints(countOfNumbers, 0, 10000).toArray();
-        return solve(id, arr).getTime();
+        return new SortObjectDTO(solve(id, arr).getTime(), "Random array has been sorted.");
     }
 }

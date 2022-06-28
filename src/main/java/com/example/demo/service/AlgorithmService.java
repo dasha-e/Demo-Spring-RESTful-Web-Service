@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.SortObject;
+import com.example.demo.DTO.SortObjectDTO;
 import com.example.demo.entity.Algorithm;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.util.List;
 
@@ -17,9 +16,10 @@ public interface AlgorithmService {
     /**
      * Insert new entry
      *
-     * @param algorithm
+     * @param title
+     * @param descr
      */
-    void saveAlgorithm(Algorithm algorithm);
+    void saveAlgorithm(String title, String descr);
 
     /**
      * Update entry by id or insert new if not exist
@@ -37,19 +37,21 @@ public interface AlgorithmService {
 
     /**
      * Sort given array by algorithm with id
+     *
      * @param id
      * @param arr
-     * @return
+     * @return SortObjectDTO
      */
-    SortObject solve(long id, int[] arr);
+    SortObjectDTO solve(long id, int[] arr);
 
     /**
      * Creating array of countOfNumbers random int and sorting by solve method
+     *
      * @param id
      * @param countOfNumbers
-     * @return
+     * @return SortObjectDTO
      */
-    Long solveRnd(long id, int countOfNumbers);
+    SortObjectDTO solveRnd(long id, int countOfNumbers);
 
 
 }
