@@ -64,7 +64,8 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     public SortObjectDTO solve(long id, int[] arr) {
         AlgorithmContext context = new AlgorithmContext(sortingStrategyMap.get(Long.toString(id)));
         long time = System.currentTimeMillis();
-        return new SortObjectDTO(System.currentTimeMillis() - time, context.executeSortingStrategy(arr));
+        String sortedArray = context.executeSortingStrategy(arr);
+        return new SortObjectDTO(System.currentTimeMillis() - time, sortedArray);
     }
 
     /**
