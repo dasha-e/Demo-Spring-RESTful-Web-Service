@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import org.junit.jupiter.api.Test;
 import com.example.demo.service.algorithm.BubbleSort;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
@@ -12,22 +12,38 @@ class BubbleSortTest {
     BubbleSort sort = new BubbleSort();
 
     @Test
-    public void sort_emptyArray(){
-        assertEquals(Arrays.toString(new int[0]), sort.sort(new int[0]));
+    public void sort_emptyArray() {
+        int[] arr = new int[0];
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[0]), Arrays.toString(arr));
     }
 
     @Test
-    public void sort_sortedArray(){
-        assertEquals(Arrays.toString(new int[]{1}), sort.sort(new int[]{1}));
-        assertEquals(Arrays.toString(new int[]{1, 2, 2, 4}), sort.sort(new int[]{1, 2, 2, 4}));
-        assertEquals(Arrays.toString(new int[]{2, 2, 2, 2}), sort.sort(new int[]{2, 2, 2, 2}));
+    public void sort_sortedArray() {
+        int[] arr = new int[]{1};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{1}), Arrays.toString(arr));
+        arr = new int[]{1, 2, 2, 4};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{1, 2, 2, 4}), Arrays.toString(arr));
+        arr = new int[]{2, 2, 2, 2};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{2, 2, 2, 2}), Arrays.toString(arr));
     }
 
     @Test
-    public void sort(){
-        assertEquals(Arrays.toString(new int[]{0, 1, 2, 3, 10}), sort.sort(new int[]{1, 0, 10, 3, 2}));
-        assertEquals(Arrays.toString(new int[]{1, 1, 10, 10}), sort.sort(new int[]{1, 10, 1, 10}));
-        assertEquals(Arrays.toString(new int[]{1, 2, 3, 4}), sort.sort(new int[]{4, 3, 2, 1}));
-        assertEquals(Arrays.toString(new int[]{2, 4, 10, 10, 45}), sort.sort(new int[]{10, 10, 2, 45, 4}));
+    public void sort() {
+        int[] arr = new int[]{1, 0, 10, 3, 2};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{0, 1, 2, 3, 10}), Arrays.toString(arr));
+        arr = new int[]{1, 10, 1, 10};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{1, 1, 10, 10}), Arrays.toString(arr));
+        arr = new int[]{4, 3, 2, 1};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{1, 2, 3, 4}), Arrays.toString(arr));
+        arr= new int[]{10, 10, 2, 45, 4};
+        sort.sort(arr);
+        assertEquals(Arrays.toString(new int[]{2, 4, 10, 10, 45}), Arrays.toString(arr));
     }
 }
