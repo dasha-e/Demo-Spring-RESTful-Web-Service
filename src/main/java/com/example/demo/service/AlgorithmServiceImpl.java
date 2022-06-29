@@ -7,6 +7,7 @@ import com.example.demo.service.algorithm.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -63,9 +64,9 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     @Override
     public SortObjectDTO solve(long id, int[] arr) {
         AlgorithmContext context = new AlgorithmContext(sortingStrategyMap.get(Long.toString(id)));
-        long time = System.currentTimeMillis();
-        String sortedArray = context.executeSortingStrategy(arr);
-        return new SortObjectDTO(System.currentTimeMillis() - time, sortedArray);
+        long time = System.nanoTime();
+        context.executeSortingStrategy(arr);
+        return new SortObjectDTO( (System.nanoTime() - time) / 1000000, Arrays.toString(arr));
     }
 
     /**

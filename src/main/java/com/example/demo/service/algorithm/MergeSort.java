@@ -7,12 +7,7 @@ import java.util.Arrays;
 @Component("5")
 public class MergeSort extends SortingStrategy {
     @Override
-    public String sort(int[] arr) {
-        mergeSort(arr);
-        return Arrays.toString(arr);
-    }
-
-    private void mergeSort(int[] arr) {
+    public void sort(int[] arr) {
         if (arr.length < 2) {
             return;
         }
@@ -21,8 +16,8 @@ public class MergeSort extends SortingStrategy {
         int[] l = Arrays.copyOfRange(arr, 0, mid);
         int[] r = Arrays.copyOfRange(arr, mid, arr.length);
         // recursively sorting halves
-        mergeSort(l);
-        mergeSort(r);
+        sort(l);
+        sort(r);
         // merge halves in one array
         merge(arr, l, r);
     }

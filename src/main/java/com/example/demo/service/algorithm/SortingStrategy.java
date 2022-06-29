@@ -5,7 +5,6 @@ public class SortingStrategy {
         return itself;
     }
 
-    public String sort(int[] arr) {
-        return "";
+    public void sort(int[] arr) {
     }
 }
