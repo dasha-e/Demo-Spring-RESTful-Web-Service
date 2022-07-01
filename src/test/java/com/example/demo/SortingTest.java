@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.service.algorithm.SortingStrategy;
-import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
@@ -39,7 +38,7 @@ public class SortingTest {
         arr = new int[]{4, 3, 2, 1};
         sort.sort(arr);
         assertEquals(Arrays.toString(new int[]{1, 2, 3, 4}), Arrays.toString(arr));
-        arr= new int[]{10, 10, 2, 45, 4};
+        arr = new int[]{10, 10, 2, 45, 4};
         sort.sort(arr);
         assertEquals(Arrays.toString(new int[]{2, 4, 10, 10, 45}), Arrays.toString(arr));
     }

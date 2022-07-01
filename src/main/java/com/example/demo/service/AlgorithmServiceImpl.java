@@ -3,7 +3,8 @@ package com.example.demo.service;
 import com.example.demo.DTO.SortObjectDTO;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.repository.AlgorithmRepository;
-import com.example.demo.service.algorithm.*;
+import com.example.demo.service.algorithm.AlgorithmContext;
+import com.example.demo.service.algorithm.SortingStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -66,15 +67,18 @@ public class AlgorithmServiceImpl implements AlgorithmService {
         AlgorithmContext context = new AlgorithmContext(sortingStrategyMap.get(Long.toString(id)));
         long time = System.nanoTime();
         context.executeSortingStrategy(arr);
-        return new SortObjectDTO( (System.nanoTime() - time) / 1000000, Arrays.toString(arr));
+        return new SortObjectDTO((System.nanoTime() - time) / 1000000 + " msec", Arrays.toString(arr));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public SortObjectDTO solveRnd(long id, int countOfNumbers) {
+    public SortObjectDTO solveRnd(long id, int countOfNumbers, boolean sorted) {
         int[] arr = new Random().ints(countOfNumbers, 0, 10000).toArray();
+        if (sorted) {
+            solve(id, arr);
+        }
         return new SortObjectDTO(solve(id, arr).getTime(), "Random array has been sorted.");
     }
 }
