@@ -65,9 +65,10 @@ public class AlgorithmServiceImpl implements AlgorithmService {
     @Override
     public SortObjectDTO solve(long id, int[] arr) {
         AlgorithmContext context = new AlgorithmContext(sortingStrategyMap.get(Long.toString(id)));
-        long time = System.nanoTime();
+        long timeBefore = System.nanoTime();
         context.executeSortingStrategy(arr);
-        return new SortObjectDTO((System.nanoTime() - time) / 1000000 + " msec", Arrays.toString(arr));
+        long timeAfter = System.nanoTime();
+        return new SortObjectDTO((timeAfter - timeBefore) / 1000000 + " msec", Arrays.toString(arr));
     }
 
     /**

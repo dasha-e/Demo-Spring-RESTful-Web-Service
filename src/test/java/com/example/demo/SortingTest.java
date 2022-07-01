@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.service.algorithm.BubbleSort;
 import com.example.demo.service.algorithm.SortingStrategy;
 
 import java.util.Arrays;
@@ -9,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SortingTest {
 
     //SortingStrategy sort = new SortingStrategy();
+
+    public void sort(){
+        sort_emptyArray(new BubbleSort());
+    }
 
     public void sort_emptyArray(SortingStrategy sort) {
         int[] arr = new int[0];
