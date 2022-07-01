@@ -3,7 +3,7 @@ package com.example.demo.service.algorithm;
 import org.springframework.stereotype.Component;
 
 @Component("2")
-public class SelectionSort extends SortingStrategy {
+public class SelectionSort implements SortingStrategy {
     @Override
     public void sort(int[] arr) {
         int minIndex;

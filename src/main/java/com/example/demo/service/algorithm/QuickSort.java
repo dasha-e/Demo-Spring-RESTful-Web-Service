@@ -3,7 +3,7 @@ package com.example.demo.service.algorithm;
 import org.springframework.stereotype.Component;
 
 @Component("4")
-public class QuickSort extends SortingStrategy {
+public class QuickSort implements SortingStrategy {
     @Override
     public void sort(int[] arr) {
         quicksort(arr, 0, arr.length - 1);

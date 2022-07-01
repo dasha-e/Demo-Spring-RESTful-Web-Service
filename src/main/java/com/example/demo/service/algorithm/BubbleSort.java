@@ -3,7 +3,7 @@ package com.example.demo.service.algorithm;
 import org.springframework.stereotype.Component;
 
 @Component("1")
-public class BubbleSort extends SortingStrategy {
+public class BubbleSort implements SortingStrategy {
 
     // move the smaller elements to the beginning of the array like a bubble :)
     @Override

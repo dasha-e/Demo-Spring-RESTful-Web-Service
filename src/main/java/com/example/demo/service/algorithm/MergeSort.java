@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 @Component("5")
-public class MergeSort extends SortingStrategy {
+public class MergeSort implements SortingStrategy {
     @Override
     public void sort(int[] arr) {
         if (arr.length < 2) {

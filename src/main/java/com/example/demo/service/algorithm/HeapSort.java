@@ -3,7 +3,7 @@ package com.example.demo.service.algorithm;
 import org.springframework.stereotype.Component;
 
 @Component("6")
-public class HeapSort extends SortingStrategy {
+public class HeapSort implements SortingStrategy {
 
     @Override
     public void sort(int[] arr) {

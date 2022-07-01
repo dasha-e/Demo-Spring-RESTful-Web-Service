@@ -3,7 +3,7 @@ package com.example.demo.service.algorithm;
 import org.springframework.stereotype.Component;
 
 @Component("3")
-public class InsertionSort extends SortingStrategy {
+public class InsertionSort implements SortingStrategy {
 
     // current element moving to the left until it would be in a right place:
     // when element on the left <= current <= element on the right
