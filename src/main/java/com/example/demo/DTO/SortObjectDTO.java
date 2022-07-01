@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SortObjectDTO {
-    private final long time;
+    private final String time;
     private final String result;
 }

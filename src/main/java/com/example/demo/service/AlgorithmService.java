@@ -46,12 +46,13 @@ public interface AlgorithmService {
 
     /**
      * Creating array of countOfNumbers random int and sorting by solve method
+     * If param sorted is true - the method calculates the sort time of an already sorted array
      *
      * @param id
      * @param countOfNumbers
      * @return SortObjectDTO
      */
-    SortObjectDTO solveRnd(long id, int countOfNumbers);
+    SortObjectDTO solveRnd(long id, int countOfNumbers, boolean sorted);
 
 
 }
