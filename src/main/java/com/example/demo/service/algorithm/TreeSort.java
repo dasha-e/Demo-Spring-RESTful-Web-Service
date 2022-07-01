@@ -1,7 +1,9 @@
 package com.example.demo.service.algorithm;
 
 import com.example.demo.entity.Node;
+import org.springframework.stereotype.Component;
 
+@Component("7")
 public class TreeSort extends SortingStrategy {
     private Node root;
 
