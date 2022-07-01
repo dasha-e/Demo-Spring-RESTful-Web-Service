@@ -1,4 +1,4 @@
-package com.example.demo.exeption;
+package com.example.demo.exception;
 
 import com.example.demo.DTO.ExceptionDTO;
 import org.springframework.dao.EmptyResultDataAccessException;
