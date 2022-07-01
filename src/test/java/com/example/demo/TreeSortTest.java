@@ -1,11 +1,10 @@
 package com.example.demo;
 
-import com.example.demo.service.algorithm.BubbleSort;
+import com.example.demo.service.algorithm.TreeSort;
 import org.junit.jupiter.api.Test;
 
-class BubbleSortTest extends SortingTest {
-
-    BubbleSort sort = new BubbleSort();
+public class TreeSortTest extends SortingTest {
+    TreeSort sort = new TreeSort();
 
     @Test
     public void sort_emptyArray() {

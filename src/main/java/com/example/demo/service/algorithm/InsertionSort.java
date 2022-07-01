@@ -2,15 +2,13 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component("3")
-public class InsertionSort extends SortingStrategy {
+public class InsertionSort implements SortingStrategy {
 
     // current element moving to the left until it would be in a right place:
     // when element on the left <= current <= element on the right
     @Override
-    public String sort(int[] arr) {
+    public void sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (arr[j] < arr[j - 1]) {
@@ -18,6 +16,5 @@ public class InsertionSort extends SortingStrategy {
                 } else break;
             }
         }
-        return Arrays.toString(arr);
     }
 }

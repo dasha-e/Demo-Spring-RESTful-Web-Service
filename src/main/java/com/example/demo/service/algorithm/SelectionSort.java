@@ -2,12 +2,10 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component("2")
-public class SelectionSort extends SortingStrategy {
+public class SelectionSort implements SortingStrategy {
     @Override
-    public String sort(int[] arr) {
+    public void sort(int[] arr) {
         int minIndex;
         for (int i = 0; i <= arr.length - 1; i++) {
             // going from beginning finding the least element and swap it with current
@@ -16,7 +14,6 @@ public class SelectionSort extends SortingStrategy {
                 arr[i] = getItself(arr[minIndex], arr[minIndex] = arr[i]);
             }
         }
-        return Arrays.toString(arr);
     }
 
     // finding index of min element in part of array from 'start' index till the end

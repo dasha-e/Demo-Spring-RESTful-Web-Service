@@ -2,14 +2,11 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component("4")
-public class QuickSort extends SortingStrategy {
+public class QuickSort implements SortingStrategy {
     @Override
-    public String sort(int[] arr) {
+    public void sort(int[] arr) {
         quicksort(arr, 0, arr.length - 1);
-        return Arrays.toString(arr);
     }
 
     private int partition(int[] arr, int low, int high) {

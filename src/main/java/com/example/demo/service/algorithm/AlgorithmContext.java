@@ -10,7 +10,7 @@ import lombok.Setter;
 public class AlgorithmContext {
     private final SortingStrategy sortingStrategy;
 
-    public String executeSortingStrategy(int[] arr) {
-        return sortingStrategy.sort(arr);
+    public void executeSortingStrategy(int[] arr) {
+        sortingStrategy.sort(arr);
     }
 }

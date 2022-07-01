@@ -2,14 +2,12 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component("1")
-public class BubbleSort extends SortingStrategy {
+public class BubbleSort implements SortingStrategy {
 
     // move the smaller elements to the beginning of the array like a bubble :)
     @Override
-    public String sort(int[] arr) {
+    public void sort(int[] arr) {
         boolean out;
         for (int i = 1; i < arr.length; i++) {
             out = true;
@@ -23,6 +21,5 @@ public class BubbleSort extends SortingStrategy {
                 break;
             }
         }
-        return Arrays.toString(arr);
     }
 }

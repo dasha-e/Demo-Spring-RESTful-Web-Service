@@ -2,13 +2,11 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component("6")
-public class HeapSort extends SortingStrategy {
+public class HeapSort implements SortingStrategy {
 
     @Override
-    public String sort(int[] arr) {
+    public void sort(int[] arr) {
         // Build heap (rearrange array)
         for (int i = arr.length / 2 - 1; i >= 0; i--)
             heapify(arr, arr.length, i);
@@ -20,7 +18,6 @@ public class HeapSort extends SortingStrategy {
             // call max heapify on the smalled heap
             heapify(arr, i, 0);
         }
-        return Arrays.toString(arr);
     }
 
     // To heapify a subtree. root is index in arr[]

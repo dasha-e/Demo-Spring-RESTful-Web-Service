@@ -105,7 +105,8 @@ public class AlgorithmController {
         return algorithmService.solve(id, arr);
     }
 
-    @Operation(summary = "Sort array of random int by algorithm from database with id. Returns the sort time in milliseconds.", tags = "Solve")
+    @Operation(summary = "Sort array of random int by algorithm from database with id. Returns the sort time in milliseconds." +
+            " If param sorted is true - the method calculates the sort time of an already sorted array.", tags = "Solve")
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
@@ -117,7 +118,7 @@ public class AlgorithmController {
                     })
     })
     @RequestMapping(value = "/sort-random-array", method = RequestMethod.GET)
-    public SortObjectDTO solve(long id, int countOfNumbers) {
-        return algorithmService.solveRnd(id, countOfNumbers);
+    public SortObjectDTO solve(long id, int countOfNumbers, boolean sorted) {
+        return algorithmService.solveRnd(id, countOfNumbers, sorted);
     }
 }
