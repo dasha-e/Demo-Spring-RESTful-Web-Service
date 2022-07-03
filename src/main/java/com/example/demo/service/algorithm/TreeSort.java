@@ -1,7 +1,7 @@
 package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
-// 5 4 8 10 2
+
 @Component("7")
 public class TreeSort implements SortingStrategy {
     private Node root;
