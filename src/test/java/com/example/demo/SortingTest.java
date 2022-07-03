@@ -18,6 +18,7 @@ public class SortingTest {
         sort_emptyArray(new MergeSort());
         sort_emptyArray(new HeapSort());
         sort_emptyArray(new TreeSort());
+        sort_emptyArray(new AVL_TreeSort());
     }
 
     @Test
@@ -29,6 +30,7 @@ public class SortingTest {
         sort_sortedArray(new MergeSort());
         sort_sortedArray(new HeapSort());
         sort_sortedArray(new TreeSort());
+        sort_sortedArray(new AVL_TreeSort());
     }
 
     @Test
@@ -40,6 +42,7 @@ public class SortingTest {
         sort_ordinaryArray(new MergeSort());
         sort_ordinaryArray(new HeapSort());
         sort_ordinaryArray(new TreeSort());
+        sort_ordinaryArray(new AVL_TreeSort());
     }
 
     private void sort_emptyArray(SortingStrategy sort) {
