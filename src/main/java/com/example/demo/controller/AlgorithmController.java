@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.DTO.SortObjectDTO;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.service.AlgorithmService;
+import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -11,10 +12,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -89,7 +87,7 @@ public class AlgorithmController {
         algorithmService.deleteAlgorithm(id);
     }
 
-    @Operation(summary = "Sort given array of int by algorithm from database with id. Returns sorted array and the sort time in milliseconds", tags = "Solve")
+    @Operation(summary = "Sort given int array", description = "Sort given array of int by algorithm from database with id. Returns sorted array and the sort time in milliseconds", tags = "Solve")
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
@@ -105,7 +103,7 @@ public class AlgorithmController {
         return algorithmService.solve(id, arr);
     }
 
-    @Operation(summary = "Sort array of random int by algorithm from database with id. Returns the sort time in milliseconds." +
+    @Operation(summary = "Sort random int array", description = "Sort array of random int by algorithm from database with id. Returns the sort time in milliseconds." +
             " If param sorted is true - the method calculates the sort time of an already sorted array.", tags = "Solve")
     @ApiResponses(value = {
             @ApiResponse(
