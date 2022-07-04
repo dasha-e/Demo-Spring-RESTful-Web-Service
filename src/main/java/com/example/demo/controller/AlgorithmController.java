@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.DTO.SortObjectDTO;
 import com.example.demo.entity.Algorithm;
 import com.example.demo.service.AlgorithmService;
-import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
