@@ -2,8 +2,11 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
+//The AVL tree is a subspecies of the binary sort tree.
+// Therefore, the AVLTreeSort class extends the class TreeSort
 @Component("8")
-public class AVL_TreeSort extends TreeSort {
+public class AVLTreeSort extends TreeSort {
+
     // return height or 0, if node doesn't exist
     int height(Node node) {
         return node == null ? 0 : node.getHeight();
