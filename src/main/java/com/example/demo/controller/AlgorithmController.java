@@ -40,7 +40,7 @@ public class AlgorithmController {
     }
 
     @Operation(summary = "Add new algorithm into database", tags = "Post", parameters = {@Parameter(name = "title",
-            description = "Title of new Algorithm."), @Parameter(name = "description", description = "Description of new Algorithm.")})
+            description = "Title of new Algorithm."), @Parameter(name = "descr", description = "Description of new Algorithm.")})
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
@@ -76,7 +76,7 @@ public class AlgorithmController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Algorithms deleted",
+                    description = "Algorithm deleted",
                     content = {
                             @Content(
                                     mediaType = "application/json",
@@ -90,7 +90,7 @@ public class AlgorithmController {
 
     @Operation(summary = "Sort given int array", description = "Sort given array of int by algorithm from database with id." +
             " Returns sorted array and the sort time in milliseconds", tags = "Solve", parameters = {@Parameter(name = "id",
-            description = "Algorithm id."), @Parameter(name = "array", description = "Array, needed to be sorted.")})
+            description = "Algorithm id."), @Parameter(name = "arr", description = "Array, needed to be sorted.")})
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
