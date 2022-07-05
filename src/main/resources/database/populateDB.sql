@@ -24,4 +24,10 @@ VALUES (DEFAULT, 'Bubble Sort ', 'The simplest sorting algorithm that works by r
         ' elements.'),
        (DEFAULT, 'Tree Sort', 'A tree sort is a sort algorithm that builds a binary search tree from the elements' ||
                               ' to be sorted, and then traverses the tree (in-order) so that the elements come out' ||
-                              ' in sorted order.');
+                              ' in sorted order.'),
+       (DEFAULT, 'AVL-Tree Sort', 'AVL Tree Sorting is a sorting algorithm that builds a balanced' ||
+                                  ' binary search tree from the elements (for any tree node, the' ||
+                                  ' height of its right subtree differs from the height of the left' ||
+                                  ' subtree by no more than one.) to be sorted, and then iterates' ||
+                                  ' through the tree (in order) so that the elements come out in' ||
+                                  ' sorted order.');

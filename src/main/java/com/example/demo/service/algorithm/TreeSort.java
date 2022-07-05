@@ -1,25 +1,24 @@
 package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
-// 5 4 8 10 2
+
 @Component("7")
 public class TreeSort implements SortingStrategy {
-    private Node root;
 
-    void createTree(int[] arr) {
-        root = null;
+    private Node createTree(int[] arr) {
+        Node root = null;
         for (int j : arr) {
             root = insertKey(root, j);
         }
-
+        return root;
     }
 
     // A recursive function to insert a new key in Binary Sort Tree
-    Node insertKey(Node root, int key) {
+    public Node insertKey(Node root, int key) {
 
         // If the tree is empty, return a new node
         if (root == null) {
-            root = new Node(key, null, null);
+            root = new Node(key, null, null, 1);
             return root;
         }
 
@@ -29,11 +28,11 @@ public class TreeSort implements SortingStrategy {
         else if (key >= root.getKey())
             root.setRight(insertKey(root.getRight(), key));
 
-        return root;
+        return balance(root); // if tree is AVL it's need to be balanced, else just return the root
     }
 
     // tree traversal to build a sorted array
-    int treeTraversal(Node root, int[] arr, int i) {
+    private int treeTraversal(Node root, int[] arr, int i) {
         if (root != null) {
             if (root.getLeft() != null) {
                 i = 1 + treeTraversal(root.getLeft(), arr, i);
@@ -46,9 +45,12 @@ public class TreeSort implements SortingStrategy {
         return i;
     }
 
+    protected Node balance(Node node) {
+        return node;
+    }
+
     @Override
     public void sort(int[] arr) {
-        createTree(arr);
-        treeTraversal(root, arr, 0);
+        treeTraversal(createTree(arr), arr, 0);
     }
 }
