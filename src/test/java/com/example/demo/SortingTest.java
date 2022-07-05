@@ -3,7 +3,6 @@ package com.example.demo;
 import com.example.demo.service.algorithm.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashMap;
