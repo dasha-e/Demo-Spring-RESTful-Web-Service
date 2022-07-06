@@ -2,47 +2,68 @@ package com.example.demo.service.algorithm;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Stack;
+
 @Component("7")
 public class TreeSort implements SortingStrategy {
 
     private Node createTree(int[] arr) {
         Node root = null;
         for (int j : arr) {
+            System.out.println(j);
             root = insertKey(root, j);
         }
         return root;
     }
 
-    // A recursive function to insert a new key in Binary Sort Tree
-    public Node insertKey(Node root, int key) {
-
+    //A recursive function to insert a new key in Binary Sort Tree
+    private Node insertKey(Node root, int key) {
         // If the tree is empty, return a new node
         if (root == null) {
-            root = new Node(key, null, null, 1);
-            return root;
+            return new Node(key, null, null, 1);
         }
-
         //Otherwise, recur down the tree
-        if (key < root.getKey())
-            root.setLeft(insertKey(root.getLeft(), key));
-        else if (key >= root.getKey())
-            root.setRight(insertKey(root.getRight(), key));
-
-        return balance(root); // if tree is AVL it's need to be balanced, else just return the root
+        Node temp = root;
+        while (true) {
+            if (key < temp.getKey()) {
+                if (temp.getLeft() == null) {
+                    temp.setLeft(new Node(key, null, null, 1));
+                    break;
+                }
+                temp = temp.getLeft();
+            } else if (key >= temp.getKey()) {
+                if (temp.getRight() == null) {
+                    temp.setRight(new Node(key, null, null, 1));
+                    break;
+                }
+                temp = temp.getRight();
+            }
+        }
+        // if tree is AVL it's need to be balanced, else just return the root
+        return balance(root);
     }
 
     // tree traversal to build a sorted array
-    private int treeTraversal(Node root, int[] arr, int i) {
-        if (root != null) {
-            if (root.getLeft() != null) {
-                i = 1 + treeTraversal(root.getLeft(), arr, i);
-            }
-            arr[i] = root.getKey();
-            if (root.getRight() != null) {
-                i = treeTraversal(root.getRight(), arr, i + 1);
-            }
+    private void treeTraversal(Node root, int[] arr) {
+        if (root == null) {
+            return;
         }
-        return i;
+        Stack<Node> stack = new Stack<>();
+        Node temp = root;
+        int i = 0;
+        do {
+            if (temp != null) {
+                stack.push(temp);
+                temp = temp.getLeft();
+            } else {
+                if (stack.isEmpty()) {
+                    break;
+                }
+                temp = stack.pop();
+                arr[i++] = temp.getKey();
+                temp = temp.getRight();
+            }
+        } while (true);
     }
 
     protected Node balance(Node node) {
@@ -51,6 +72,6 @@ public class TreeSort implements SortingStrategy {
 
     @Override
     public void sort(int[] arr) {
-        treeTraversal(createTree(arr), arr, 0);
+        treeTraversal(createTree(arr), arr);
     }
 }
