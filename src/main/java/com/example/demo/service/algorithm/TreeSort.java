@@ -10,7 +10,6 @@ public class TreeSort implements SortingStrategy {
     private Node createTree(int[] arr) {
         Node root = null;
         for (int j : arr) {
-            System.out.println(j);
             root = insertKey(root, j);
         }
         return root;
