@@ -13,6 +13,7 @@
 - [Установка и запуск](#установка-и-запуск)
 - [Реализация алгоритмов](#реализация-алгоритмов)
 - [Тестирование](#тестирование)
+- [Источники](#источники)
 
 ## Технологии
 
@@ -45,39 +46,39 @@ http://localhost:8080/ ... /
 
 ### 1. Bubble Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/bubble_sort.gif" width="400" height="300"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/bubble_sort.gif" width="400" height="300"/>
 
 ### 2. Selection Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/selection_sort.gif" width="400" height="300"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/selection_sort.gif" width="400" height="300"/>
 
 ### 3. Insertion Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/insertion_sort.gif" width="400" height="300"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/insertion_sort.gif" width="400" height="300"/>
 
 ### 4. Quick Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/quick_sort_hoare.gif" width="400" height="300"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/quick_sort_hoare.gif" width="400" height="300"/>
 
 ### 5. Merge Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/merge_sort.gif" width="400" height="300"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/merge_sort.gif" width="400" height="300"/>
 
 ### 6. Heap Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/heap_sort.gif" width="400" height="300"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/heap_sort.gif" width="400" height="300"/>
 
 ### 7. Binary Tree Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/BSTinsertion.gif" width="400" height="250"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/BSTinsertion.gif" width="400" height="250"/>
 
 ### 8. AVL Tree Sort
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/AVL_Tree_Sort.gif" width="400" height="200"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/AVL_Tree_Sort.gif" width="400" height="200"/>
 
 ### Tree traversal
 
-<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/algorithms-visualizations/treeTraversal.gif" width="400" height="400"/>
+<img src="https://raw.githubusercontent.com/dasha-e/Demo-Spring-RESTful-Web-Service/development/src/main/resources/algorithms-visualizations/treeTraversal.gif" width="400" height="400"/>
 
 ## Тестирование
 
