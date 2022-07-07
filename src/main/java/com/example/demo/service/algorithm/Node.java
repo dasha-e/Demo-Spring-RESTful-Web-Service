@@ -10,4 +10,5 @@ import lombok.Setter;
 public class Node {
     private int key;
     private Node left, right;
+    private int height;
 }
